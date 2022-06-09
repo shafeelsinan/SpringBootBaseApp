@@ -1,0 +1,59 @@
+package com.springboot.blog.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.springboot.blog.domain.Post;
+import com.springboot.blog.dto.Comment;
+import com.springboot.blog.dto.CommentDto;
+import com.springboot.blog.exception.ResourceNotFountException;
+import com.springboot.blog.repository.CommentRepository;
+import com.springboot.blog.repository.PostRepository;
+import com.springboot.blog.service.CommentService;
+
+@Service
+public class CommentServiceImpl implements CommentService{
+
+	@Autowired
+	CommentRepository commnetRepository;
+	
+	@Autowired
+	PostRepository postRepository;
+	
+	public CommentServiceImpl(CommentRepository commnetRepository,PostRepository postRepository) {
+		this.commnetRepository = commnetRepository;
+		this.postRepository = postRepository;
+	}
+
+	@Override
+	public CommentDto createComment(Long postId, CommentDto commnetDto) {
+		Comment commnet = mapToEntity(commnetDto);
+		
+		//retriveve post Entity
+		Post post = postRepository.findById(postId).orElseThrow(() -> new ResourceNotFountException("post", "id", postId));
+		return null;
+	}
+	
+	private CommentDto mapToDto(Comment comment)
+	{
+		CommentDto commnetDto  = new CommentDto();
+		commnetDto.setId(comment.getId());
+		commnetDto.setBody(comment.getBody());
+		commnetDto.setEmail(comment.getEmail());
+		commnetDto.setName(comment.getName());
+		
+		return commnetDto;
+	}
+	
+	private Comment mapToEntity(CommentDto commnetDto)
+	{
+		Comment commnet = new Comment();
+		commnet.setId(commnetDto.getId());
+		commnet.setBody(commnetDto.getBody());
+		commnet.setEmail(commnetDto.getEmail());
+		commnet.setName(commnetDto.getName());
+		
+		return commnet;
+	}
+
+}

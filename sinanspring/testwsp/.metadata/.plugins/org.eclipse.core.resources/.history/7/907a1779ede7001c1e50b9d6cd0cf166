@@ -1,0 +1,24 @@
+package com.springboot.blog.utils;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+public class PasswordGenerator {
+
+	
+		 public static void main(String[] args) {
+		        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		        System.out.println(passwordEncoder.encode("admin"));
+		    }
+		
+		//sinan : $2a$10$W35cYq3icm8SlGJzjDE28ex1rG7x4oAn/Jjoei5wxpDlfF2eMl5wK
+		
+		//sinan : $2a$10$acj2HtV9p6L1RqxC.eha0.Rtvgca5C2QyJ99.NvnmWHT3YTkJQZSm
+		
+		//admin : $2a$10$c8U43Q7dgRMs3IRp7H2Ziu6IYuxU.LBbvdHNWTd0zZaK4fskgWNdG
+		
+		//admin : $2a$10$uDqs910j23IMLvwdjz.HnOE1omahd6L2ZsnEn11mxrOCP9QybLZuS
+		
+		//        $2a$10$ayR3BLrnUBGZU5nK4upNJeD3ekQJ4QSWLJ6qKq/JWKrGB7ur4mb4y
+	}
+}

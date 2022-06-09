@@ -1,0 +1,32 @@
+package com.springboot.blog.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.springboot.blog.dto.Comment;
+import com.springboot.blog.dto.CommentDto;
+import com.springboot.blog.repository.CommentRepository;
+import com.springboot.blog.service.CommentService;
+
+@Service
+public class CommentServiceImpl implements CommentService{
+
+	@Autowired
+	CommentRepository commnetRepository;
+	
+	public CommentServiceImpl(CommentRepository commnetRepository) {
+		this.commnetRepository = commnetRepository;
+	}
+
+	@Override
+	public CommentDto createComment(Long postId, CommentDto commnetDto) {
+		
+		return null;
+	}
+	
+	private CommentDto mapToDto(Comment comment)
+	{
+		return null;
+	}
+
+}
