@@ -29,11 +29,7 @@ public class Comment {
 	//Done By Sinan
 	private String name;
 	private String email;
-	//Done By Sinan
 	private String body;
-	//Done By Sinan
-	//Done By Sinan
-	//Done By Sinan
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="post_id",nullable = false)
